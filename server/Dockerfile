@@ -1,0 +1,19 @@
+# specify the base image .
+FROM node:alpine
+
+#  Spicify the working directory.
+WORKDIR '/app'
+
+COPY ./package.json ./
+
+RUN npm install
+
+# RUN apt-get update
+# RUN apt-get install vim
+#RUN apk add --update vim
+
+COPY . .
+
+# Tell the image what to do when it starts as a container.
+# default command
+CMD ["npm","run","start"]
